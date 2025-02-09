@@ -300,7 +300,7 @@ export class GameControl extends Component {
         // get type after generate map completely for counting remaining block when fill the elements.
         for (let j = 0; j < this.currentStage.GRID_Y; j++) {
             for (let i = 0; i < this.currentStage.GRID_X; i++) {
-                if (j === this.currentStage.GRID_Y - 1 && i === this.currentStage.GRID_X - 1 && Object.keys(blockNotMatched).length === 1) {
+                if (j === this.currentStage.GRID_Y - 2 && i === this.currentStage.GRID_X - 2 && Object.keys(blockNotMatched).length === 1) {
                     this.grids[j][i].type = 'element'
                 }
                 if (this.grids[j][i].type === 'element') this.grids[j][i].elementType = getElementType(j, i)
