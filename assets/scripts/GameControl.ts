@@ -107,7 +107,6 @@ export class GameControl extends Component {
 
     start() {
         // this.resetGame()
-        console.log(this)
     }
 
     cheat() {
@@ -307,13 +306,19 @@ export class GameControl extends Component {
             }
         }
 
+        let emptyRemain = false
+
         for (let j = 0; j < this.currentStage.GRID_Y; j++) {
             this.grids[j] = this.grids[j] || []
             for (let i = 0; i < this.currentStage.GRID_X; i++) {
-                if (this.isEmptyBlock(j, i) || (this.currentStage?.isEmptyBlock(j, i))) {
+                if (j === this.currentStage.GRID_Y - 2 && i === this.currentStage.GRID_X - 2) {
+                    this.grids[j][i] = emptyRemain ? { type: 'element' } : { type: 'empty' }
+                } else if (this.isEmptyBlock(j, i) || (this.currentStage?.isEmptyBlock(j, i))) {
                     this.grids[j][i] = { type: 'empty' }
+                    emptyRemain = !emptyRemain
                 } else if (this.currentStage?.isStaticBlock(j, i)) {
                     this.grids[j][i] = { type: 'static' }
+                    emptyRemain = !emptyRemain
                 } else {
                     this.grids[j][i] = { type: 'element' }
                 }
@@ -322,9 +327,6 @@ export class GameControl extends Component {
         // get type after generate map completely for counting remaining block when fill the elements.
         for (let j = 0; j < this.currentStage.GRID_Y; j++) {
             for (let i = 0; i < this.currentStage.GRID_X; i++) {
-                if (j === this.currentStage.GRID_Y - 2 && i === this.currentStage.GRID_X - 2 && Object.keys(blockNotMatched).length === 1) {
-                    this.grids[j][i].type = 'element'
-                }
                 if (this.grids[j][i].type === 'element') this.grids[j][i].elementType = getElementType(j, i)
             }
         }
