@@ -24,7 +24,7 @@ export const stageDefine = {
     2: {
         GRID_X: 10,
         GRID_Y: 14,
-        ELEMENT_RANGE: 16,
+        ELEMENT_RANGE: 14,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return Math.random() < 0.2 },
         timeLimit: 300,
@@ -35,7 +35,7 @@ export const stageDefine = {
     3: {
         GRID_X: 10,
         GRID_Y: 14,
-        ELEMENT_RANGE: 22,
+        ELEMENT_RANGE: 18,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return Math.random() < 0.1 },
         timeLimit: 300,
@@ -46,7 +46,7 @@ export const stageDefine = {
     4: {
         GRID_X: 10,
         GRID_Y: 14,
-        ELEMENT_RANGE: 26,
+        ELEMENT_RANGE: 22,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return false },
         timeLimit: 240,
