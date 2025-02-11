@@ -69,6 +69,8 @@ export class GameControl extends Component {
 
     private pipeItems = []
 
+    private cheatHandler = null
+
     jumpToSticky() {
         // @ts-ignore
         wx.openChannelsUserProfile({
@@ -84,6 +86,7 @@ export class GameControl extends Component {
         // @ts-ignore from btn "give up" click
         if (isWin.bubbles) isWin = false
         clearInterval(this.coundDownHandler)
+        clearInterval(this.cheatHandler)
         this.node.destroyAllChildren()
         this.statusControl.gameOver(isWin)
     }
@@ -104,6 +107,24 @@ export class GameControl extends Component {
 
     start() {
         // this.resetGame()
+        console.log(this)
+    }
+
+    cheat() {
+        this.cheatHandler = setInterval(() => {
+            this.cheatAction()
+        }, 1000)
+    }
+
+    cheatAction() {
+        try {
+            const matchable = this.findMachable()
+            if (matchable) {
+                this.match(matchable[0], matchable[1])
+            }
+        } catch (e) {
+            clearInterval(this.cheatHandler)
+        }
     }
 
     renderHint() {
@@ -128,6 +149,7 @@ export class GameControl extends Component {
         this.renderHint()
         this.resetGame()
         this.tryShuffle()
+        // this.cheat()
     }
 
     makeResolve(twist: number, score: number, hint = false) {
