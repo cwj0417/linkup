@@ -198,7 +198,7 @@ export class GameControl extends Component {
         for (let i = 1; i < this.grids.length - 1; i++) {
             for (let j = 1; j < this.grids[i].length - 1; j++) {
                 this.grids[i][j] = flatGrids[index++];
-                this.logElements(this.grids[i][j].elementType, i, j)
+                this.grids[i][j].elementType && this.logElements(this.grids[i][j].elementType, i, j)
             }
         }
         this.node.removeAllChildren()
