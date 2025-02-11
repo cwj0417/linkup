@@ -4,6 +4,16 @@ import datamanage from './datamanage';
 import { GameControl } from './GameControl';
 import { skillDefine } from './skillDefine';
 
+export const formatGold = (gold: number | string) => {
+    gold = +gold;
+    const digit = Math.floor(Math.log10(gold)) + 1
+    if (digit < 5) return gold.toString();
+    if (digit < 8) return Math.floor((gold / (10 ** 3))) + 'K';
+    if (digit < 11) return Math.floor((gold / (10 ** 6))) + 'M';
+    if (digit < 14) return Math.floor((gold / (10 ** 9))) + 'G';
+    return Math.floor((gold / (10 ** 12))) + 'T';
+}
+
 @ccclass('StatusControl')
 export class StatusControl extends Component {
 
@@ -109,7 +119,7 @@ export class StatusControl extends Component {
     }
 
     addGold(gold: number) {
-        this.renderGold(`${this.userGold}+${gold}`);
+        this.renderGold(`${formatGold(this.userGold)}+${gold}`);
         this.userGold += gold;
         this.saveGold();
         setTimeout(() => {
@@ -130,7 +140,7 @@ export class StatusControl extends Component {
     }
 
     renderGold(string?: string) {
-        this.goldText.string = string || this.userGold.toString();
+        this.goldText.string = string || formatGold(this.userGold);
     }
 
     renderStage() {
@@ -152,10 +162,10 @@ export class StatusControl extends Component {
     }
 
     renderSkill() {
-        this.twistText.string = skillDefine.twistBonus[this.userSkill.twistBonus].desc + (skillDefine.twistBonus[this.userSkill.twistBonus].nextLevCost !== false ? '\n\n点击升级(需要金币: ' + skillDefine.twistBonus[this.userSkill.twistBonus].nextLevCost + ')' : '\n\n已经达到最高等级');
-        this.beforeLeapText.string = skillDefine.leapBefore[this.userSkill.leapBefore].desc + (skillDefine.leapBefore[this.userSkill.leapBefore].nextLevCost !== false ? '\n\n点击升级(需要金币: ' + skillDefine.leapBefore[this.userSkill.leapBefore].nextLevCost + ')' : '\n\n已经达到最高等级');
-        this.hintText.string = skillDefine.hint[this.userSkill.hint].desc + (skillDefine.hint[this.userSkill.hint].nextLevCost !== false ? '\n\n点击升级(需要金币: ' + skillDefine.hint[this.userSkill.hint].nextLevCost + ')' : '\n\n已经达到最高等级');
-        this.findSameElementText.string = skillDefine.findSameElement[this.userSkill.findSameElement].desc + (skillDefine.findSameElement[this.userSkill.findSameElement].nextLevCost !== false ? '\n\n点击升级(需要金币: ' + skillDefine.findSameElement[this.userSkill.findSameElement].nextLevCost + ')' : '\n\n已经达到最高等级');
+        this.twistText.string = skillDefine.twistBonus[this.userSkill.twistBonus].desc + (skillDefine.twistBonus[this.userSkill.twistBonus].nextLevCost !== false ? '\n\n点击升级(需要金币: ' + formatGold(skillDefine.twistBonus[this.userSkill.twistBonus].nextLevCost as number) + ')' : '\n\n已经达到最高等级');
+        this.beforeLeapText.string = skillDefine.leapBefore[this.userSkill.leapBefore].desc + (skillDefine.leapBefore[this.userSkill.leapBefore].nextLevCost !== false ? '\n\n点击升级(需要金币: ' + formatGold(skillDefine.leapBefore[this.userSkill.leapBefore].nextLevCost as number) + ')' : '\n\n已经达到最高等级');
+        this.hintText.string = skillDefine.hint[this.userSkill.hint].desc + (skillDefine.hint[this.userSkill.hint].nextLevCost !== false ? '\n\n点击升级(需要金币: ' + formatGold(skillDefine.hint[this.userSkill.hint].nextLevCost as number) + ')' : '\n\n已经达到最高等级');
+        this.findSameElementText.string = skillDefine.findSameElement[this.userSkill.findSameElement].desc + (skillDefine.findSameElement[this.userSkill.findSameElement].nextLevCost !== false ? '\n\n点击升级(需要金币: ' + formatGold(skillDefine.findSameElement[this.userSkill.findSameElement].nextLevCost as number) + ')' : '\n\n已经达到最高等级');
     }
 
     update(deltaTime: number) {
