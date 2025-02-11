@@ -35,7 +35,7 @@ export const stageDefine = {
     3: {
         GRID_X: 10,
         GRID_Y: 14,
-        ELEMENT_RANGE: 20,
+        ELEMENT_RANGE: 22,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return Math.random() < 0.1 },
         timeLimit: 300,
@@ -46,7 +46,7 @@ export const stageDefine = {
     4: {
         GRID_X: 10,
         GRID_Y: 14,
-        ELEMENT_RANGE: 24,
+        ELEMENT_RANGE: 26,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return false },
         timeLimit: 240,
@@ -57,7 +57,7 @@ export const stageDefine = {
     5: {
         GRID_X: 10,
         GRID_Y: 14,
-        ELEMENT_RANGE: 24,
+        ELEMENT_RANGE: 26,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return false },
         timeLimit: 180,
@@ -68,7 +68,7 @@ export const stageDefine = {
     6: {
         GRID_X: 12,
         GRID_Y: 16,
-        ELEMENT_RANGE: 24,
+        ELEMENT_RANGE: 26,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return Math.random() < 0.3 },
         timeLimit: 240,
@@ -79,7 +79,7 @@ export const stageDefine = {
     7: {
         GRID_X: 12,
         GRID_Y: 16,
-        ELEMENT_RANGE: 24,
+        ELEMENT_RANGE: 26,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return Math.random() < 0.2 },
         timeLimit: 180,
@@ -90,7 +90,7 @@ export const stageDefine = {
     8: {
         GRID_X: 12,
         GRID_Y: 16,
-        ELEMENT_RANGE: 24,
+        ELEMENT_RANGE: 26,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return Math.random() < 0.1 },
         timeLimit: 180,
@@ -101,7 +101,7 @@ export const stageDefine = {
     9: {
         GRID_X: 12,
         GRID_Y: 16,
-        ELEMENT_RANGE: 24,
+        ELEMENT_RANGE: 26,
         isStaticBlock(i: number, j: number) { return false },
         isEmptyBlock(i: number, j: number) { return false },
         timeLimit: 180,
@@ -112,7 +112,7 @@ export const stageDefine = {
     10: {
         GRID_X: 12,
         GRID_Y: 16,
-        ELEMENT_RANGE: 24,
+        ELEMENT_RANGE: 26,
         isStaticBlock(i: number, j: number) { return i === 7 && j > 3 && j < 8 },
         isEmptyBlock(i: number, j: number) { return false },
         timeLimit: 180,
@@ -123,7 +123,7 @@ export const stageDefine = {
     11: {
         GRID_X: 12,
         GRID_Y: 16,
-        ELEMENT_RANGE: 24,
+        ELEMENT_RANGE: 26,
         isStaticBlock(i: number, j: number) { return Math.random() < 0.1 },
         isEmptyBlock(i: number, j: number) { return false },
         timeLimit: 150,
