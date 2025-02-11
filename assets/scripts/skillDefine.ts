@@ -17,22 +17,22 @@ export const skillDefine: {
         },
         1: {
             effect: 2,
-            nextLevCost: 300,
+            nextLevCost: 1000,
             desc: '三折消除获得2倍金币\n\n下一级: 三折消除获得3倍金币'
         },
         2: {
             effect: 3,
-            nextLevCost: 500,
+            nextLevCost: 10000,
             desc: '三折消除获得3倍金币\n\n下一级: 三折消除获得4倍金币'
         },
         3: {
             effect: 4,
-            nextLevCost:  1000,
+            nextLevCost: 100000,
             desc: '三折消除获得4倍金币\n\n下一级: 三折消除获得5倍金币'
         },
         4: {
             effect: 5,
-            nextLevCost: 5000,
+            nextLevCost: 1000000,
             desc: '三折消除获得5倍金币\n\n下一级: 所有消除都获得5倍金币'
         },
         5: {
@@ -50,22 +50,22 @@ export const skillDefine: {
         },
         1: {
             effect: 1,
-            nextLevCost: 300,
+            nextLevCost: 1000,
             desc: '每局游戏进行2次匹配后才开始计时\n\n下一级: 每局游戏进行4次匹配后才开始计时'
         },
         2: {
             effect: 2,
-            nextLevCost: 500,
+            nextLevCost: 10000,
             desc: '每局游戏进行4次匹配后才开始计时\n\n下一级: 每局游戏进行6次匹配后才开始计时'
         },
         3: {
             effect: 3,
-            nextLevCost:  1000,
+            nextLevCost: 100000,
             desc: '每局游戏进行6次匹配后才开始计时\n\n下一级: 每局游戏进行8次匹配后才开始计时'
         },
         4: {
             effect: 4,
-            nextLevCost: 5000,
+            nextLevCost: 1000000,
             desc: '每局游戏进行8次匹配后才开始计时\n\n下一级: 每局游戏进行10次匹配后才开始计时, 并且在使用"提示"后暂停倒计时'
         },
         5: {
@@ -83,22 +83,22 @@ export const skillDefine: {
         },
         1: {
             effect: 1,
-            nextLevCost: 300,
+            nextLevCost: 1000,
             desc: '每局游戏可以获得1次提示\n\n下一级: 每局游戏可以获得2次提示'
         },
         2: {
             effect: 2,
-            nextLevCost: 500,
+            nextLevCost: 10000,
             desc: '每局游戏可以获得2次提示\n\n下一级: 每局游戏可以获得3次提示'
         },
         3: {
             effect: 3,
-            nextLevCost:  1000,
+            nextLevCost: 100000,
             desc: '每局游戏可以获得3次提示\n\n下一级: 每局游戏可以获得4次提示'
         },
         4: {
             effect: 4,
-            nextLevCost: 5000,
+            nextLevCost: 1000000,
             desc: '每局游戏可以获得4次提示\n\n下一级: 每局游戏可以获得5次提示, 每次使用有50%概率不消耗次数'
         },
         5: {
@@ -116,22 +116,22 @@ export const skillDefine: {
         },
         1: {
             effect: 2,
-            nextLevCost: 300,
+            nextLevCost: 1000,
             desc: '每局游戏可以获得2次双击获取全部元素位置\n\n下一级: 每局游戏可以获得4次双击获取全部元素位置'
         },
         2: {
             effect: 4,
-            nextLevCost: 500,
+            nextLevCost: 10000,
             desc: '每局游戏可以获得4次双击获取全部元素位置\n\n下一级: 每局游戏可以获得6次双击获取全部元素位置'
         },
         3: {
             effect: 6,
-            nextLevCost:  1000,
+            nextLevCost: 100000,
             desc: '每局游戏可以获得6次双击获取全部元素位置\n\n下一级: 每局游戏可以获得8次双击获取全部元素位置'
         },
         4: {
             effect: 8,
-            nextLevCost: 5000,
+            nextLevCost: 1000000,
             desc: '每局游戏可以获得8次双击获取全部元素位置\n\n下一级: 每局游戏可以无限次双击获取全部元素位置'
         },
         5: {
