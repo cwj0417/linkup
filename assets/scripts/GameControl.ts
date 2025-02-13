@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Prefab, instantiate, Label, Vec3, resources, Sprite, SpriteFrame, Texture2D, Animation, macro } from 'cc';
+import { _decorator, Component, Node, Prefab, instantiate, Label, Vec3, resources, Sprite, SpriteFrame, Texture2D, Animation, ProgressBar } from 'cc';
 const { ccclass, property } = _decorator;
 import { skillDefine, SkillType } from './skillDefine';
 import { stageDefine } from './stageDefine';
@@ -55,6 +55,9 @@ export class GameControl extends Component {
     @property(Label)
     timeRemainingLabel: Label = null;
 
+    @property(ProgressBar)
+    countDownBar: ProgressBar = null;
+
     private currentStage = null;
     private currentSkill = null;
 
@@ -95,14 +98,18 @@ export class GameControl extends Component {
         this.resetGrids()
         this.renderBlocks()
         this.coundDownHandler = setInterval(() => {
-            this.timeRemainingLabel.string = this.timeRemaining.toString()
             if (!this.isPausing) {
-                this.timeRemaining = +this.timeRemaining - 1
+                this.timeRemaining = +this.timeRemaining - 1;
+                this.timeRemainingLabel.string = this.timeRemaining.toString()
+                this.countDownBar.progress = this.timeRemaining / this.currentStage.timeLimit
+                if ([60, 30, 20, 10, 5, 4, 3, 2, 1].includes(this.timeRemaining)) {
+                    this.countDownBar.node.getComponent(Animation).play('scaleHint')
+                }
                 if (this.timeRemaining === 0) {
-                    this.gameOver(false)
+                    this.gameOver(false);
                 }
             }
-        }, 1000)
+        }, 1000);
     }
 
     start() {

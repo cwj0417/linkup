@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Label } from 'cc';
+import { _decorator, Component, Node, Label, resources, SpriteFrame, Texture2D, Sprite } from 'cc';
 const { ccclass, property } = _decorator;
 import datamanage from './datamanage';
 import { GameControl } from './GameControl';
@@ -46,6 +46,9 @@ export class StatusControl extends Component {
 
     @property(Label)
     findSameElementText: Label = null;
+
+    @property(Node)
+    bg: Node = null;
 
     private userGold: number = 0;
     private userStage = {
@@ -116,6 +119,14 @@ export class StatusControl extends Component {
         });
         this.node.active = false;
         this.gameplay.active = true;
+        resources.load('game_bg', (err, spriteFrame) => {
+            const sf = new SpriteFrame()
+            const txt = new Texture2D()
+            // @ts-ignore
+            txt.image = spriteFrame
+            sf.texture = txt
+            this.bg.getComponent(Sprite).spriteFrame = sf
+        });
     }
 
     addGold(gold: number) {
@@ -137,6 +148,14 @@ export class StatusControl extends Component {
         }
         this.node.active = true;
         this.gameplay.active = false;
+        resources.load('bg', (err, spriteFrame) => {
+            const sf = new SpriteFrame()
+            const txt = new Texture2D()
+            // @ts-ignore
+            txt.image = spriteFrame
+            sf.texture = txt
+            this.bg.getComponent(Sprite).spriteFrame = sf
+        });
     }
 
     renderGold(string?: string) {
