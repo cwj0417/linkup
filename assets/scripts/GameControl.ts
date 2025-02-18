@@ -97,6 +97,7 @@ export class GameControl extends Component {
     resetGame() {
         this.resetGrids()
         this.renderBlocks()
+        this.timeRemainingLabel.string = this.timeRemaining.toString()
         this.coundDownHandler = setInterval(() => {
             if (!this.isPausing) {
                 this.timeRemaining = +this.timeRemaining - 1;
@@ -160,10 +161,10 @@ export class GameControl extends Component {
 
     makeResolve(twist: number, score: number, hint = false) {
         if (!hint) {
-            if (this.currentSkill.leapBefore.effect > 0) {
+            if (this.currentSkill.leapBefore.effect >= 0) {
                 this.currentSkill.leapBefore.effect -= 1
             }
-            this.isPausing = this.currentSkill.leapBefore.effect > 0
+            this.isPausing = this.currentSkill.leapBefore.effect >= 0
             if (twist === 3) {
                 this.statusControl.addGold(score * this.currentSkill.twistBonus.effect * this.currentStage.goldAquirement)
             } else if (this.currentSkill.twistBonus.extraEffect) {
