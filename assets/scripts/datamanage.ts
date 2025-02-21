@@ -1,4 +1,12 @@
 // @ts-nocheck
+
+try {
+    wx.showShareMenu({
+        withShareTicket: true,
+        menus: ['shareAppMessage', 'shareTimeline']
+    })
+} catch (e) { }
+
 const datamanage = {
     getGold() {
         try {
